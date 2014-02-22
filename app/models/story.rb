@@ -4,6 +4,8 @@ class Story < ActiveRecord::Base
   belongs_to :organisation
   belongs_to :product
 
+  has_many :story_questions
+
   validates_presence_of :organisation
   validates_presence_of :user
 

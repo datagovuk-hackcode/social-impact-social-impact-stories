@@ -15,5 +15,22 @@
   <%= @story.user.full_name %>
 </p>
 
+<p>
+  <strong>Questions:</strong>
+  <% @story.story_questions.each do |story_question| %>
+    <div>
+      <%= story_question.content %>
+    
+
+    <ul>
+      <% story_question.story_question_responses.each do |response| %>
+        <li>
+          <%= response.value %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Back', stories_path %>
