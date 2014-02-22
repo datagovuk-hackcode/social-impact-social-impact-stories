@@ -6,13 +6,25 @@ class OrganisationsController < ApplicationController
     @organisations = Organisation.all
   end
 
+  def update
+    respond_to do |format|
+      if @organisation.update(organisation_params)
+        format.html { redirect_to organisation_url(@organisation), notice: 'Organisation was successfully updated.' }
+        format.json { render json: @organisation }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @organisation.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
     def set_organisation
       @organisation = Organisation.find_by_id(params[:id])
     end
 
-    def story_params
+    def organisation_params
       params.require(:organisation).permit(
         :name,
         :address_line_1,
@@ -24,7 +36,8 @@ class OrganisationsController < ApplicationController
         :website,
         :phone_number,
         :email,
-        :mission_statement
+        :mission_statement,
+        :organisation_type_id
       )
     end
 
