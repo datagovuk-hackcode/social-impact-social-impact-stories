@@ -20,6 +20,7 @@ class OrganisationsController < ApplicationController
 
   def stories
 
+    @organisation = Organisation.find(params[:organisation_id])
     @stories = Story.where(organisation_id: params[:organisation_id])
 
   end
