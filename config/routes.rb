@@ -1,4 +1,6 @@
 Socialimpactstories::Application.routes.draw do
+  resources :stories
+
   resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
