@@ -1,0 +1,11 @@
+<span class="profile">
+    <%= imagetag(@story.user.profile_picture) %>
+    <%= @story.user.full_name %>
+</span> on 
+<span class="org">
+  <%= link_to(@story.organisation) %>
+</span>
+<span class="date">
+  <%= @story.created_at>
+</span>
+ ago

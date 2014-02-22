@@ -1,12 +1,14 @@
 <div class="listing">
-<% @most_recent_stories.each do |story| %>
-
+  <% @most_recent_stories.each do |story| %>
   <div class="story">
     <h2><%= defined?(story.title) ? story.title : 'This is the story'  %></h2>
     <%= defined?(story.image) ? (link_to '<div class="image">#{image_tag(story.image)}</div>').htmlsafe : ''  %>
     <div class="content">
       <%= story.content %>
     </div>
+    <div class="meta">
+      <% render partial: "stories/meta", locals: {story: @story} %>
+    </div>
   </div>
-<% end %>
+  <% end %>
 </div>
