@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Socialimpactstories::Application.config.secret_key_base = '4bd91622fe522b6e105117750110bc8e402d2c1bbcc62a165a891b49a33888ca6e46ef8180a284c1c0d4e421db73248c6ea8df7898a3149ce309b16e947a6d66'
+Socialimpactstories::Application.config.secret_key_base = '2a630bca5b3e0d0ffd6e6d932f59ac69b1f8cb8fc64e23c996aa0b98b53d9d553d74f09e9f49481e424673aac6a93dbe77e275d03d1f9c4a10f81e884193afe3'
