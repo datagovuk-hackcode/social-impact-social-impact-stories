@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-def create_users number
+def create_users quantity
   
-  number.times do
+  quantity.times do
     user = User.create([
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
@@ -23,4 +23,28 @@ def create_users number
   puts 'Created: Users (Silent Fails)'
 end
 
+def create_organisations quantity
+
+  quantity.times do
+    organisation = Organisation.create([
+      name: Faker::Company.name,
+      address_line_1: Faker::Address.street_address,
+      address_line_2: Faker::Address.city,
+      address_line_3: '',
+      postcode: Faker::Address.postcode,
+      county_state: Faker::Address.state,
+      country: Faker::Address.country,
+      website: Faker::Internet.domain_name,
+      phone_number: Faker::PhoneNumber.phone_number,
+      email: Faker::Internet.email,
+      mission_statement: Faker::Company.bs
+    ])
+    
+  end
+
+  puts 'Created: Organisations (Silent Fails)'
+
+end
+
 create_users 20
+create_organisations 20

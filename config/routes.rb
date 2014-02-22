@@ -4,6 +4,8 @@ Socialimpactstories::Application.routes.draw do
 
   root :to => "static#home_page"
   devise_for :users
+
+  resources :organisations
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
