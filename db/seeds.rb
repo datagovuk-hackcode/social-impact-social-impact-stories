@@ -73,9 +73,15 @@ end
 def create_stories quantity
 
   quantity.times do
-    story = Story.create([
+    story = Story.new(
       content: 'story content'
-    ])
+    )
+
+    story.user = User.order('RANDOM()').first
+    story.organisation = Organisation.order('RANDOM()').first
+
+    story.save!
+
   end
 
 end

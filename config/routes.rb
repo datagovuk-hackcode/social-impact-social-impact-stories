@@ -1,6 +1,6 @@
 Socialimpactstories::Application.routes.draw do
+  
   resources :stories
-
   resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -9,7 +9,11 @@ Socialimpactstories::Application.routes.draw do
   root :to => "static#home_page"
   devise_for :users
 
-  resources :organisations
+  resources :organisations do
+    get 'stories'
+  end
+  resources :stories
+  resources :products
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
