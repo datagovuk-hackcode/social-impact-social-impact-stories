@@ -7,7 +7,16 @@
       <%= story.content %>
     </div>
     <div class="meta">
-      <% render partial: "stories/meta", locals: {story: @story} %>
+      <span class="profile">
+        <%= image_tag(defined?(story.user.profile_picture) ?
+        story.user.profile_picture : "http://gravatar.com/avatar") %>
+        <%= story.user.full_name %>
+      </span> on 
+      <span class="org"><%= link_to story.organisation.name, story.organisation %></span>, 
+      <span class="date">
+        <%= time_ago_in_words(story.created_at) %>
+      </span>
+      ago
     </div>
   </div>
   <% end %>
