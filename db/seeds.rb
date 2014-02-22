@@ -74,6 +74,7 @@ def create_stories quantity
 
   quantity.times do
     story = Story.new(
+      title: Faker::Lorem.sentence,
       content: Faker::Lorem.paragraph
     )
 
