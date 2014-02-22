@@ -13,6 +13,8 @@ class CreateOrganisations < ActiveRecord::Migration
       t.string :email
       t.text :mission_statement
 
+      t.integer :organisation_type_id
+
       t.timestamps
     end
   end

@@ -1,7 +1,7 @@
 class Story < ActiveRecord::Base
 
   belongs_to :user
-  belongs_to :company
+  belongs_to :organisation
   belongs_to :product
 
   def self.most_recent_stories limit
