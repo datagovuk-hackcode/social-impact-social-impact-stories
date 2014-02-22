@@ -1,1 +1,6 @@
 This is the home page.
+<br>
+<% @most_recent_stories.each do |story| %>
+  Story content: <%= story.content %>
+  <br>
+<% end %>
