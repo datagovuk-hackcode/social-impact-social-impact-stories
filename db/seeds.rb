@@ -74,7 +74,7 @@ def create_stories quantity
 
   quantity.times do
     story = Story.new(
-      content: 'story content'
+      content: Faker::Lorem.paragraph
     )
 
     story.user = User.order('RANDOM()').first
