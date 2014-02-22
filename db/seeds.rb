@@ -23,10 +23,32 @@ def create_users quantity
   puts 'Created: Users (Silent Fails)'
 end
 
+def create_organisation_types
+
+  OrganisationType.create([
+    {
+      name: 'Company'
+    },
+    {
+      name: 'School/University'
+    },
+    {
+      name: 'Charity'
+    },
+    {
+      name: 'Council'
+    },
+    {
+      name: 'Government Dept.'
+    },
+  ])
+
+end
+
 def create_organisations quantity
 
   quantity.times do
-    organisation = Organisation.create([
+    organisation = Organisation.create(
       name: Faker::Company.name,
       address_line_1: Faker::Address.street_address,
       address_line_2: Faker::Address.city,
@@ -38,13 +60,27 @@ def create_organisations quantity
       phone_number: Faker::PhoneNumber.phone_number,
       email: Faker::Internet.email,
       mission_statement: Faker::Company.bs
-    ])
-    
+    )
+    organisation.organisation_type = OrganisationType.order('RANDOM()').first
+    organisation.save
+
   end
 
   puts 'Created: Organisations (Silent Fails)'
 
 end
 
+def create_stories quantity
+
+  quantity.times do
+    story = Story.create([
+      content: 'story content'
+    ])
+  end
+
+end
+
 create_users 20
+create_organisation_types
 create_organisations 20
+create_stories 20
