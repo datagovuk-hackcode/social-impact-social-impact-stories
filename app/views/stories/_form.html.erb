@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+
+    <%= f.label :organisation %><br>
+    <%= collection_select(:story, :organisation_id, Organisation.all, :id, :name, prompt: true) %>
+
     <%= f.label :content %><br>
     <%= f.text_area :content %>
   </div>

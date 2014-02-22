@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140222155735) do
     t.text     "title"
     t.text     "content"
     t.integer  "user_id"
-    t.integer  "company_id"
+    t.integer  "organisation_id"
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"

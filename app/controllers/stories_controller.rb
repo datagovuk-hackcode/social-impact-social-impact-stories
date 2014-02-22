@@ -39,7 +39,8 @@ class StoriesController < InheritedResources::Base
 
     def story_params
       params.require(:story).permit(
-        :content
+        :content,
+        :organisation_id
       )
     end
 
