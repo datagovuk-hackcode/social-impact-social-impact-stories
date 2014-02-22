@@ -5,7 +5,7 @@ class OrganisationsController < ApplicationController
   private
 
     def set_organisation
-      @organisation = Organisation.find_by_if(params[:id])
+      @organisation = Organisation.find_by_id(params[:id])
     end
 
     def story_params
