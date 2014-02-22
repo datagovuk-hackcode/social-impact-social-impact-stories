@@ -10,5 +10,6 @@
   <%= @organisation.organisation_type.name %>
 </p>
 
+<%= link_to 'Show all Stories', organisation_stories_path(@organisation) %>
 <%= link_to 'Edit', edit_organisation_path(@organisation) %> |
 <%= link_to 'Back', organisations_path %>

@@ -18,6 +18,13 @@ class OrganisationsController < ApplicationController
     end
   end
 
+  def stories
+
+    @organisation = Organisation.find(params[:organisation_id])
+    @stories = Story.where(organisation_id: params[:organisation_id])
+
+  end
+
   private
 
     def set_organisation
@@ -40,8 +47,5 @@ class OrganisationsController < ApplicationController
         :organisation_type_id
       )
     end
-
-
-
 
 end

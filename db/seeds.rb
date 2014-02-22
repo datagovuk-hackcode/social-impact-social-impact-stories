@@ -73,10 +73,51 @@ end
 def create_stories quantity
 
   quantity.times do
-    story = Story.create([
+    story = Story.new(
       content: 'story content'
-    ])
+    )
+
+    story.user = User.order('RANDOM()').first
+    story.organisation = Organisation.order('RANDOM()').first
+
+    story.save!
+
   end
+
+  puts 'Created: Stories (Noisy Fails)'
+
+end
+
+def create_story_questions quantity
+
+  quantity.times do
+    story_question = StoryQuestion.new(
+      content: 'This is a story question.'
+    )
+
+    story_question.story = Story.order('RANDOM()').first
+    
+    story_question.save!
+
+  end
+
+  puts 'Created: Story Questions (Noisy Fails)'
+
+end
+
+def create_story_question_responses quantity
+
+  quantity.times do
+    story_question_response = StoryQuestionResponse.new(
+      value: rand(2)
+    )
+
+    story_question_response.story_question = StoryQuestion.order('RANDOM()').first
+    story_question_response.save!
+
+  end
+
+  puts 'Created: Story Question Responses (Noisy Fails)'
 
 end
 
@@ -84,3 +125,5 @@ create_users 20
 create_organisation_types
 create_organisations 20
 create_stories 20
+create_story_questions 60
+create_story_question_responses 150
