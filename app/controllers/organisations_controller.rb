@@ -2,6 +2,10 @@ class OrganisationsController < ApplicationController
 
   before_action :set_organisation, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @organisations = Organisation.all
+  end
+
   private
 
     def set_organisation
