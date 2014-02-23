@@ -25,7 +25,7 @@
             <%= truncate story.content, length: 250 %>
           </div>
           <div class="meta">
-            <%= image_tag(defined?(story.user.profile_picture) ? story.user.profile_picture : "http://gravatar.com/avatar") %>
+            <%= image_tag(defined?(story.user.profile_picture) ? story.user.profile_picture : "https://s3.amazonaws.com/uifaces/faces/twitter/lepetitogre/128.jpg") %>
             <span class="profile">
               <%= story.user.full_name %>
             </span> on 
