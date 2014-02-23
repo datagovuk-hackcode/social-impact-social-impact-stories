@@ -1,30 +1,46 @@
+<%= form_for(@story) do |f| %>
+  <% if @story.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
 
-<div class="wrap stories-new">
-  <div class="grid">
-    <%= form_for(@story) do |f| %>
-      <% if @story.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
-
-          <ul>
-          <% @story.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
+      <ul>
+      <% @story.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-      <div class="field">
+  <div class="field stories-new-form">
 
-        <%= f.label :organisation, "Which organisation are you writing about?" %>
-        <%= collection_select(:story, :organisation_id, Organisation.all, :id, :name, { prompt: true },{ :class => 'stylised-dropdown'}) %>
+    <%= f.label :organisation, "Which organisation are you writing about?" %>
+    <%= collection_select(:story, :organisation_id, Organisation.all, :id, :name, { prompt: true },{ :class => 'stylised-dropdown'}) %>
 
-        <%= f.label :content %><br>
-        <%= f.text_area :content %>
+    <%= f.label :content, "What is your experience of this organisation?"%><br>
+    <p class="story-prompt">
+      Tell us a story. How have they affected you? Has their work or their products had a positive or negative effect on you?
+    </p>
+    <div class="story-container">
+      <div class="story-element">
+        <%= f.text_area :content, class: 'stylised-textarea' %>
       </div>
-      <div class="actions">
-        <%= f.submit %>
-      </div>
-    <% end %>
+    </div>
+
+    <div class="add-story-sections">
+      <ul>
+        <li class="add-more-story-text">
+          More Text
+        </li>
+        <li class="add-story-photo">
+          Add A Photo
+        </li>
+        <li class="add-story-video">
+          Add A Video
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+  <div class="actions">
+    <%= f.submit 'Create My Story', class: 'btn' %>
+  </div>
+<% end %>
