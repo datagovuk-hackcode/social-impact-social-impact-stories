@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require isotope
+//= require masonry-horizontal
 //= require app
 //= require_tree .

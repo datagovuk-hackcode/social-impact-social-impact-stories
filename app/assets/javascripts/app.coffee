@@ -1,2 +1,2 @@
 $container = $('#container')
-$container.isotope {itemSelector: '.story', layoutMode: 'fitRows'}
+$container.isotope {itemSelector: '.story', layoutMode: 'masonry'}

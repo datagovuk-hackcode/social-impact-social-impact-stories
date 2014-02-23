@@ -1,23 +1,28 @@
-<div class="listing">
-  <% @most_recent_stories.each do |story| %>
-  <div class="story">
-    <h2><%= link_to story.title, story  %></h2>
-    <%= defined?(story.image) ? (link_to "<div class='image'>#{image_tag(story.image)}</div>").htmlsafe : ""  %>
-    <div class="content">
-      <%= story.content %>
-    </div>
-    <div class="meta">
-      <span class="profile">
-        <%= image_tag(defined?(story.user.profile_picture) ?
-        story.user.profile_picture : "http://gravatar.com/avatar") %>
-        <%= story.user.full_name %>
-      </span> on 
-      <span class="org"><%= link_to story.organisation.name, story.organisation %></span>, 
-      <span class="date">
-        <%= time_ago_in_words(story.created_at) %>
-      </span>
-      ago
+<div class="wrap">
+  <div class="grid">
+    <div class="listing">
+      <% @most_recent_stories.each do |story| %>
+      <div class="story <% if [true, false].sample %>wide<% end %>">
+        <div class="layer">
+          <h2><%= link_to story.title, story  %></h2>
+          <%= defined?(story.image) ? (link_to "<div class='image'>#{image_tag(story.image)}</div>").htmlsafe : ""  %>
+          <div class="content">
+            <%= story.content %>
+          </div>
+          <div class="meta">
+            <%= image_tag(defined?(story.user.profile_picture) ? story.user.profile_picture : "http://gravatar.com/avatar") %>
+            <span class="profile">
+              <%= story.user.full_name %>
+            </span> on 
+            <span class="org"><%= link_to story.organisation.name, story.organisation %></span>, 
+            <span class="date">
+              <%= time_ago_in_words(story.created_at) %>
+            </span>
+            ago
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
-  <% end %>
 </div>
