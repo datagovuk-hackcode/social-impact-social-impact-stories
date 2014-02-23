@@ -32,35 +32,48 @@
         <%= @story.content %>
       </div>
       <div class="interactions">
-        <p>
-          <strong>Questions:</strong>
+        <h3>Questions</h3>
+        <div class="interact">
           <% @story.story_questions.each do |story_question| %>
-          <div>
-            <%= story_question.content %>
-            <ul>
-              <% story_question.story_question_responses.each do |response| %>
-              <li>
-                <%= response.value %>
-              </li>
-              <% end %>
-            </ul>
-            <% end %>
-        </p>
-        <p>
-          <strong>Relatabilities:</strong>
+          <div class="question line">
+            <div class="question_content">
+              <%= story_question.content %>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" id="agree" name="agree" data-on="Yes" data-off="No" />
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <h3>Do you empathise with this story?</h3>
+        <div class="interact">
+          <div class="empathy line">
+            <div class="toggle">
+              <input type="checkbox" id="agree" name="agree" data-on="Yes" data-off="No" />
+            </div>
+          </div>
+        </div>
+        <h3>Impact</h3>
+        <div class="interact">
           <% @story.relatabilities.each do |relatability| %>
-          <div>
+          <div class="val">
             <%= relatability.value %>
             <%= relatability.comment %>
             <% end %>
           </div>
-        </p>
-        <%= link_to 'Edit', edit_story_path(@story) %> |
-        <%= link_to 'Back', stories_path %>
+          <div class="rating">
+            <div class="positive">
+              <h3>73%</h3>
+            </div>
+            <div class="negative">
+              <h3>27%</h3>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="rating">
-      </div>
     </div>
+          <!--<%= link_to 'Edit', edit_story_path(@story) %> |
+          <%= link_to 'Back', stories_path %>-->
   </div>
+</div>
 </div>
