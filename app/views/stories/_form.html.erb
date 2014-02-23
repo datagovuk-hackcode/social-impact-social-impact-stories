@@ -1,25 +1,30 @@
-<%= form_for(@story) do |f| %>
-  <% if @story.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
 
-      <ul>
-      <% @story.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<div class="wrap stories-new">
+  <div class="grid">
+    <%= form_for(@story) do |f| %>
+      <% if @story.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+          <ul>
+          <% @story.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
+      <div class="field">
 
-    <%= f.label :organisation %><br>
-    <%= collection_select(:story, :organisation_id, Organisation.all, :id, :name, prompt: true) %>
+        <%= f.label :organisation, "Which organisation are you writing about?" %>
+        <%= collection_select(:story, :organisation_id, Organisation.all, :id, :name, { prompt: true },{ :class => 'stylised-dropdown'}) %>
 
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+        <%= f.label :content %><br>
+        <%= f.text_area :content %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
