@@ -104,7 +104,7 @@ def create_stories quantity
 
   posi_story = Story.new()
   posi_story.content = "
-    test
+    Hello, this is a dummy story..<br><br><img src='/images/11477817403_990d7ca1c3_o_sml.jpg'>
   "
   posi_story.user = User.first
   posi_story.organisation = Organisation.find_by_name('Coke')

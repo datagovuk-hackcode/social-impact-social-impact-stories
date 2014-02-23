@@ -28,8 +28,8 @@
       <div class="date">
         <%= @story.created_at.to_formatted_s(:long) %>
       </div>
-      <div class="content">
-        <%= @story.content %>
+      <div class="content story-content">
+        <%= @story.content.html_safe %>
       </div>
       <div class="interactions">
         <p>
