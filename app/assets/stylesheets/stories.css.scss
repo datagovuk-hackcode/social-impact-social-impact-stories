@@ -3,11 +3,107 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-background: #F7F7F7;
+  background: #F7F7F7;
 }
 
 .organisation {
   .logo {
     max-width: 100%;
+  }
+}
+
+.stories-new {
+  
+  h1 {
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+
+  .grid {
+    background: white;
+    padding: 20px;
+  }
+
+  label {
+    width: 100%;
+    font-size: 17px;
+    margin-bottom: 0.75em;
+    display: inline-block;
+  }
+
+  .stylised-dropdown {
+    width: 100%;
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+    -webkit-appearance: none;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.1);
+    border: solid 1px rgba(0,0,0,0.1);
+    font-size: 19px;
+    cursor: pointer;
+    margin-bottom: 3em;
+    border-radius: 3px;
+  }
+
+  .stylised-textarea {
+    width: 98%;
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+    -webkit-appearance: none;
+    padding: 10px;
+    background-color: white;
+    border: solid 1px rgba(0,0,0,0.1);
+    font-size: 19px;
+    margin-bottom: 1em;
+    border-radius: 3px;
+  }
+
+  .story-prompt {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0.5em;
+    font-size: 15px;
+  }
+
+  .add-story-sections {
+    
+    width: 100%;
+    text-align: center;
+
+    ul {
+      font-size: 0px;
+      display: inline-block;
+
+      li {
+        background-color: rgba(0,0,0,0.08);
+        display: inline-block;
+        font-size: 15px;
+        font-family: "Montserrat", sans-serif;
+        padding: 20px;
+        border-left: 1px solid rgba(0,0,0,0.1);
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(0,0,0,0.1); 
+        }
+
+        &:first-child {
+          border-top-left-radius: 3px;
+          border-bottom-left-radius: 3px;
+          border-left: none;
+        }
+
+        &:last-child {
+          border-top-right-radius: 3px;
+          border-bottom-right-radius: 3px;
+        }
+
+
+      }
+    }
+  }
+
+  .actions {
+    text-align: center;
   }
 }
