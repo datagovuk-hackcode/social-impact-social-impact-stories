@@ -1,23 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <div class="wrap story-page shadow">
-  <div class="grid title">
-    <h2><%= @story.title %></h2>
-  </div>
   <div class="grid organisation">
     <p>
-      <strong>Organisation:</strong>
+      <strong>Related organisation:</strong>
       <%= @story.organisation.name %>
     </p>
   </div>
+  <div class="grid title">
+    <h2><%= @story.title %></h2>
+  </div>
   <div class="grid story-detail">
     <p>
-      <strong>Content:</strong>
-      <%= @story.content %>
+      <strong>Author:</strong>
+      <%= @story.user.full_name %>
     </p>
     <p>
-      <strong>User:</strong>
-      <%= @story.user.full_name %>
+      <%= @story.content %>
     </p>
     <p>
       <strong>Questions:</strong>
@@ -36,5 +35,7 @@
     <%= link_to 'Edit', edit_story_path(@story) %> |
     <%= link_to 'Back', stories_path %>
     </div>
+  </div>
+  <div class="grid rating">
   </div>
 </div>
