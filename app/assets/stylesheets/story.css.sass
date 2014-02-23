@@ -4,15 +4,12 @@
 .story
   background: #fff
   margin: 5px 1%
-  width: 32.4%
-  min-height: 360px
+  width: 31.4%
+  min-height: 270px
   margin: 5px
   float: left
   box-shadow: 0px 1px 1px #eee
   position: relative
-  &.wide
-    width: 65%
-    min-height: 175px
   > * 
     margin: 0
     padding: 0
@@ -58,6 +55,7 @@
     float: left
   .content
     margin-bottom: 10px
+    padding-bottom: 40px
   .profile
     font-weight: bold
   .date
@@ -66,7 +64,6 @@
 .story-page
   .grid
     background: #fff
-    padding-top: 10px
     padding-bottom: 10px
   .organisation
     border-bottom: 1px solid #E4F6FA
@@ -75,7 +72,7 @@
     h1
       margin-top: 10px
   h2
-    margin-top: 10px
+    margin: 0 0 10px
   .story-detail
     margin-top: 0
     padding-top: 0
@@ -86,7 +83,6 @@
       font-family: 'Nixie One', cursive
       font-size: 18px
       line-height: 24px
-      margin-top: 20px
       margin-bottom: 20px
     strong
       color: #1D3144
@@ -106,3 +102,37 @@
       content: ""
       display: block
       clear: both
+  .unit
+    padding-top: 20px
+
+.images
+  img
+    width: 100%
+
+.wrap
+  &.title
+    background: #3b3b3b
+    background: #B8C2C4
+    color: #fff
+    margin: 0
+    padding: 0
+    strong, a
+      color: #3b7fcc
+    .author
+      font-size: 16px
+      padding: 30px
+      text-align: center
+  .summary
+    font-family: 'Nixie One', cursive
+    font-size: 25px
+    line-height: 35px
+    margin-bottom: 0px
+    color: #3f95c6
+  .date
+    font-size: 13px
+    opacity: .7
+    text-align: right
+    margin-bottom: 20px
+
+.grid.organisation .unit:first-child
+  padding-left: 0
