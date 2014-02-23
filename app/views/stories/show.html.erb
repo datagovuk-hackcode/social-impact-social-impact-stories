@@ -17,9 +17,11 @@
   </div>
   <div class="grid story-detail">
     <div class="unit whole">
-      <div class="author">
-        <strong>Written by </strong>
-        <%= @story.user.full_name %>
+      <div class="meta">
+        <div class="author">
+          <%= image_tag(defined?(story.user.profile_picture) ? story.user.profile_picture : "http://gravatar.com/avatar") %>
+          Written by <%= @story.user.full_name %>, on <%= @story.created_at.to_formatted_s(:long) %>
+        </div>
       </div>
       <div class="content">
         <%= @story.content %>
