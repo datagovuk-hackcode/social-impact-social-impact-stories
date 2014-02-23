@@ -2,10 +2,13 @@
 
 <div class="wrap story-page shadow">
   <div class="grid organisation">
-    <p>
+    <div class="unit one-quarter logo">
+      <img src="http://lorempixel.com/474/474" class="logo" />
+    </div>
+    <div class="unit three-quarters">
       <strong>Related organisation:</strong>
       <%= @story.organisation.name %>
-    </p>
+    </div>
   </div>
   <div class="grid title">
     <h2><%= @story.title %></h2>
