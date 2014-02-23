@@ -14,6 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require isotope
-//= require masonry-horizontal
+//= require fit-columns
 //= require app
 //= require_tree .
