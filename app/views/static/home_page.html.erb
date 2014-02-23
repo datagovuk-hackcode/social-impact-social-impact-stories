@@ -19,10 +19,10 @@
       <% @most_recent_stories.each do |story| %>
       <div class="story <% if [true, false].sample %>wide<% end %>">
         <div class="layer">
-          <h2><%= link_to story.title, story  %></h2>
+          <h2><%= link_to truncate(story.title, length: 60), story  %></h2>
           <%= defined?(story.image) ? (link_to "<div class='image'>#{image_tag(story.image)}</div>").htmlsafe : ""  %>
           <div class="content">
-            <%= story.content %>
+            <%= truncate story.content, length: 200 %>
           </div>
           <div class="meta">
             <%= image_tag(defined?(story.user.profile_picture) ? story.user.profile_picture : "http://gravatar.com/avatar") %>
