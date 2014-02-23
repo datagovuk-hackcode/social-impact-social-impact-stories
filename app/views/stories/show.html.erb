@@ -1,45 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Organisation:</strong>
-  <%= @story.organisation.name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @story.content %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @story.user.full_name %>
-</p>
-
-<p>
-  <strong>Questions:</strong>
-  <% @story.story_questions.each do |story_question| %>
-    <div>
-      <%= story_question.content %>
-    
-
-    <ul>
-      <% story_question.story_question_responses.each do |response| %>
-        <li>
-          <%= response.value %>
-        </li>
+<div class="wrap story-page shadow">
+  <div class="grid organisation">
+    <p>
+      <strong>Related organisation:</strong>
+      <%= @story.organisation.name %>
+    </p>
+  </div>
+  <div class="grid title">
+    <h2><%= @story.title %></h2>
+  </div>
+  <div class="grid story-detail">
+    <p>
+      <strong>Author:</strong>
+      <%= @story.user.full_name %>
+    </p>
+    <p>
+      <%= @story.content %>
+    </p>
+    <p>
+      <strong>Questions:</strong>
+      <% @story.story_questions.each do |story_question| %>
+      <div>
+        <%= story_question.content %>
+        <ul>
+          <% story_question.story_question_responses.each do |response| %>
+          <li>
+            <%= response.value %>
+          </li>
+          <% end %>
+        </ul>
+        <% end %>
+    </p>
+    <p>
+      <strong>Relatabilities:</strong>
+      <% @story.relatabilities.each do |relatability| %>
+        <div>
+          <%= relatability.value %>
+          <%= relatability.comment %>
       <% end %>
-    </ul>
-  <% end %>
-</p>
-
-<p>
-  <strong>Relatabilities:</strong>
-  <% @story.relatabilities.each do |relatability| %>
-    <div>
-      <%= relatability.value %>
-      <%= relatability.comment %>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
+    </p>
+    <%= link_to 'Edit', edit_story_path(@story) %> |
+    <%= link_to 'Back', stories_path %>
+    </div>
+  </div>
+  <div class="grid rating">
+  </div>
+</div>
