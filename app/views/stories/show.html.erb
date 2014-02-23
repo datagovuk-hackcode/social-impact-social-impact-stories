@@ -7,46 +7,51 @@
     </div>
     <div class="unit three-quarters">
       <strong>Related organisation:</strong>
-      <%= @story.organisation.name %>
+      <h1><%= @story.organisation.name %></h1>
     </div>
   </div>
   <div class="grid title">
-    <h2><%= @story.title %></h2>
+    <div class="unit whole">
+      <h2><%= @story.title %></h2>
+    </div>
   </div>
   <div class="grid story-detail">
-    <p>
-      <strong>Author:</strong>
-      <%= @story.user.full_name %>
-    </p>
-    <p>
-      <%= @story.content %>
-    </p>
-    <p>
-      <strong>Questions:</strong>
-      <% @story.story_questions.each do |story_question| %>
-      <div>
-        <%= story_question.content %>
-        <ul>
-          <% story_question.story_question_responses.each do |response| %>
-          <li>
-            <%= response.value %>
-          </li>
+    <div class="unit whole">
+      <div class="author">
+        <strong>Written by </strong>
+        <%= @story.user.full_name %>
+      </div>
+      <div class="content">
+        <%= @story.content %>
+      </div>
+      <p>
+        <strong>Questions:</strong>
+        <% @story.story_questions.each do |story_question| %>
+        <div>
+          <%= story_question.content %>
+          <ul>
+            <% story_question.story_question_responses.each do |response| %>
+            <li>
+              <%= response.value %>
+            </li>
+            <% end %>
+          </ul>
           <% end %>
-        </ul>
-        <% end %>
-    </p>
-    <p>
-      <strong>Relatabilities:</strong>
-      <% @story.relatabilities.each do |relatability| %>
+      </p>
+      <p>
+        <strong>Relatabilities:</strong>
+        <% @story.relatabilities.each do |relatability| %>
         <div>
           <%= relatability.value %>
           <%= relatability.comment %>
-      <% end %>
-    </p>
-    <%= link_to 'Edit', edit_story_path(@story) %> |
-    <%= link_to 'Back', stories_path %>
+          <% end %>
+        </div>
+      </p>
+      <%= link_to 'Edit', edit_story_path(@story) %> |
+      <%= link_to 'Back', stories_path %>
+      </div>
     </div>
-  </div>
-  <div class="grid rating">
+    <div class="grid rating">
+    </div>
   </div>
 </div>
