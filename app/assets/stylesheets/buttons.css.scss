@@ -8,4 +8,9 @@
   color: white;
   font-family: inherit;
   cursor: pointer;
+
+  &:hover {
+    background: darken(#3d5a99, 10%);
+    color: white;
+  }
 }

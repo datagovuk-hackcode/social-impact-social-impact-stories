@@ -103,6 +103,9 @@ body {
     }
   }
 
+  .photo-upload-form {
+    img { max-width: 100%; }
+  }
   .actions {
     text-align: center;
   }
