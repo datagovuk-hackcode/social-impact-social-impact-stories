@@ -47,22 +47,52 @@ end
 
 def create_organisations quantity
 
-  quantity.times do
-    organisation = Organisation.create(
-      name: Faker::Company.name,
-      address_line_1: Faker::Address.street_address,
-      address_line_2: Faker::Address.city,
-      address_line_3: '',
-      postcode: Faker::Address.postcode,
-      county_state: Faker::Address.state,
-      country: Faker::Address.country,
-      website: Faker::Internet.domain_name,
-      phone_number: Faker::PhoneNumber.phone_number,
-      email: Faker::Internet.email,
-      mission_statement: Faker::Company.bs
-    )
-    organisation.organisation_type = OrganisationType.order('RANDOM()').first
-    organisation.save
+
+  coke = Organisation.new()
+  coke.name = "Coke"
+  coke.organisation_type = OrganisationType.find_by_name('Company')
+  coke.save
+
+  apple = Organisation.new()
+  apple.name = "Apple"
+  apple.organisation_type = OrganisationType.find_by_name('Company')
+  apple.save
+
+  nike = Organisation.new()
+  nike.name = "Nike"
+  nike.organisation_type = OrganisationType.find_by_name('Company')
+  nike.save
+
+  impact = Organisation.new()
+  impact.name = "Impact Hub"
+  impact.organisation_type = OrganisationType.find_by_name('Company')
+  impact.save
+
+  council = Organisation.new()
+  council.name = "Islington Council"
+  council.organisation_type = OrganisationType.find_by_name('Council')
+  council.save
+
+  uni = Organisation.new()
+  uni.name = "City University"
+  uni.organisation_type = OrganisationType.find_by_name('School/University')
+  uni.save
+
+
+  Organisation.all.each do |organisation|
+    
+    organisation.address_line_1 = Faker::Address.street_address
+    organisation.address_line_2 = Faker::Address.city
+    organisation.address_line_3 = ''
+    organisation.postcode = Faker::Address.postcode
+    organisation.county_state = Faker::Address.state
+    organisation.country = Faker::Address.country
+    organisation.website = Faker::Internet.domain_name
+    organisation.phone_number = Faker::PhoneNumber.phone_number
+    organisation.email = Faker::Internet.email
+    organisation.mission_statement = Faker::Company.bs
+
+    organisation.save!
 
   end
 
@@ -71,6 +101,22 @@ def create_organisations quantity
 end
 
 def create_stories quantity
+
+  posi_story = Story.new()
+  posi_story.content = "
+    test
+  "
+  posi_story.user = User.first
+  posi_story.organisation = Organisation.find_by_name('Coke')
+  posi_story.save!
+
+  neg_story = Story.new()
+  neg_story.content = "
+    test
+  "
+  neg_story.user = User.first
+  neg_story.organisation = Organisation.find_by_name('Coke')
+  neg_story.save!
 
   quantity.times do
     story = Story.new(

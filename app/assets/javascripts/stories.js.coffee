@@ -31,7 +31,7 @@ class window.StoryCreator
 
   create_photo_upload_field: =>
     uploader_form = $("<form class='photo-upload-form' id='photo-upload-form'></form>")
-    upload_field = $("<input type='file' class='photo-upload-input' id='fileupload' />")
+    upload_field = $("<input type='file' class='photo-upload-input' id='fileupload' style='margin-bottom: 1em' />")
     result_field = $("<div class='result'/>")
     upload_field.on 'change', @show_photo_preview
     uploader_form.append upload_field
@@ -65,6 +65,8 @@ class window.StoryCreator
       picReader.addEventListener "load", (event) ->
         picFile = event.target
         div = document.createElement("div")
+        div.className = 'text-center'
+        div.style.marginBottom = '2em'
         div.innerHTML = "<img class='thumbnail' src='" + picFile.result + "'" + "title='" + picFile.name + "'/>"
         $(output).after div, null
         return
