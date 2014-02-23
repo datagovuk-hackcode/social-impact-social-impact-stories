@@ -51,6 +51,7 @@ def create_organisations quantity
   coke = Organisation.new()
   coke.name = "Coke"
   coke.organisation_type = OrganisationType.find_by_name('Company')
+  coke.logo_url = '/logos/coke_logo.png'
   coke.save
 
   apple = Organisation.new()
@@ -103,16 +104,28 @@ end
 def create_stories quantity
 
   posi_story = Story.new()
+  posi_story.title = "Bringing Coke home for Christmas."
   posi_story.content = "
-    test
+    Coke visited my home town of Chichester today. Here's a photo of me with my family. It was really exciting to have them there as a lifelong employee. I was proud to be part of them helping bring some Christmas cheer to the town.
+    <br>
+    <br>
+    <img src='/images/11477817403_990d7ca1c3_o_sml.jpg'>
+    <br>
+    <br>
+    This is one of the reasons we love working with Coke. We work hard to bring our spirit to kids in the area.
   "
   posi_story.user = User.first
   posi_story.organisation = Organisation.find_by_name('Coke')
   posi_story.save!
 
   neg_story = Story.new()
+  neg_story.title = "Coke did not invent Christmas."
   neg_story.content = "
-    test
+    
+      I really wasn't very happy when the Coca-Cola truck visited Chichester. I'm not comfortable about them promoting sugar and fizzy drinks to our kids. They claim to have invented Santa, but acting as if bringing a large (CO2 emitting) lorry from the screen to our high street is not in that spirit!
+    <p>
+    It's a real shame that they have been given this platform by the council and I'm not too happy about it.
+    </p>
   "
   neg_story.user = User.first
   neg_story.organisation = Organisation.find_by_name('Coke')
@@ -137,16 +150,33 @@ end
 
 def create_story_questions quantity
 
-  quantity.times do
-    story_question = StoryQuestion.new(
-      content: 'This is a story question.'
-    )
+  question = StoryQuestion.new()
+  question.content = 'Do you know that coke provide 100,000 jobs in Chichester?'
+  question.story = Story.find(1)
+  question.save!
 
-    story_question.story = Story.order('RANDOM()').first
+  question = StoryQuestion.new()
+  question.content = 'Has the Coke visit made an impact on your family?'
+  question.story = Story.find(1)
+  question.save!
+
+  question = StoryQuestion.new()
+  question.content = 'Does bringing the coke lorry to Chichested change your opinion of Coke?'
+  question.story = Story.find(2)
+  question.save!
+
+
+
+  # quantity.times do
+  #   story_question = StoryQuestion.new(
+  #     content: 'This is a story question.'
+  #   )
+
+  #   story_question.story = Story.order('RANDOM()').first
     
-    story_question.save!
+  #   story_question.save!
 
-  end
+  # end
 
   puts 'Created: Story Questions (Noisy Fails)'
 

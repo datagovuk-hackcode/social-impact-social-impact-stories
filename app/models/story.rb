@@ -12,7 +12,7 @@ class Story < ActiveRecord::Base
   validates_presence_of :user
 
   def self.most_recent_stories limit
-    Story.order(created_at: :desc).limit limit
+    Story.order(created_at: :asc).limit limit
   end
 
   def positive_relatability_count

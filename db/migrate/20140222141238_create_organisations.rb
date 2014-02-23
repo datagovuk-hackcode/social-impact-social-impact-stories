@@ -12,6 +12,7 @@ class CreateOrganisations < ActiveRecord::Migration
       t.string :phone_number
       t.string :email
       t.text :mission_statement
+      t.text :logo_url
 
       t.integer :organisation_type_id
 

@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140223114241) do
     t.string   "phone_number"
     t.string   "email"
     t.text     "mission_statement"
+    t.text     "logo_url"
     t.integer  "organisation_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
