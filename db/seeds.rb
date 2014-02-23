@@ -51,6 +51,7 @@ def create_organisations quantity
   coke = Organisation.new()
   coke.name = "Coke"
   coke.organisation_type = OrganisationType.find_by_name('Company')
+  coke.logo_url = '/logos/coke_logo.png'
   coke.save
 
   apple = Organisation.new()
