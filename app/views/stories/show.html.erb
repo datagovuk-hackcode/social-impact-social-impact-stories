@@ -32,5 +32,14 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Relatabilities:</strong>
+  <% @story.relatabilities.each do |relatability| %>
+    <div>
+      <%= relatability.value %>
+      <%= relatability.comment %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Back', stories_path %>

@@ -121,9 +121,26 @@ def create_story_question_responses quantity
 
 end
 
+def create_relatibilities quantity
+
+  quantity.times do
+    relatability = Relatability.new(
+      value: rand(2)
+    )
+
+    relatability.story = Story.order('RANDOM()').first
+    relatability.save!
+
+  end
+
+  puts 'Created: Story Question Responses (Noisy Fails)'
+
+end
+
 create_users 20
 create_organisation_types
 create_organisations 20
 create_stories 20
 create_story_questions 60
 create_story_question_responses 150
+create_relatibilities 150
