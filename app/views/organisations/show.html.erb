@@ -1,15 +1,56 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @organisation.name %>
-</p>
+<div class="wrap">
+  <div class="grid organisation-show">
+    <div class="unit one-quarter images">
+      <img src="<%= @organisation.logo_url %>" class="logo" />
+    </div>
 
-<p>
-  <strong>Organisation Type:</strong>
-  <%= @organisation.organisation_type.name %>
-</p>
+    <h1>
+      <%= @organisation.name %>
+    </h1>
 
-<%= link_to 'Show all Stories', organisation_stories_path(@organisation) %>
-<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
-<%= link_to 'Back', organisations_path %>
+    <p>
+      <label>Organisation Type</label>
+      
+        <%= @organisation.organisation_type.name %>
+
+    </p>
+
+    <p>
+      <label>Mission Statement</label>
+      <%= @organisation.mission_statement %>
+    </p>
+
+    <div style="width: 100%; float: left;">
+      
+      <% @organisation.stories.each do |story| %>
+        
+        <div class="story">
+          <div class="layer">
+            <h2><%= link_to story.title, story  %></h2>
+            <%= defined?(story.image) ? (link_to "<div class='image'>#{image_tag(story.image)}</div>").htmlsafe : ""  %>
+            <div class="content">
+              <%= truncate story.content, length: 250 %>
+            </div>
+            <div class="meta">
+              <%= image_tag(defined?(story.user.profile_picture) ? story.user.profile_picture : "http://gravatar.com/avatar") %>
+              <span class="profile">
+                <%= story.user.full_name %>
+              </span> on 
+              <span class="org"><%= link_to story.organisation.name, story.organisation %></span>, 
+              <span class="date">
+                <%= time_ago_in_words(story.created_at) %> ago
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to 'Edit', edit_organisation_path(@organisation) %> |
+    <%= link_to 'Back', organisations_path %>
+
+  </div>
+</div>
+
