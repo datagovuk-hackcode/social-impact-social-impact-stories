@@ -15,5 +15,7 @@
 //= require turbolinks
 //= require isotope
 //= require masonry-horizontal
+//= require jquery-fileupload
 //= require app
 //= require_tree .
+

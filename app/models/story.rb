@@ -6,6 +6,7 @@ class Story < ActiveRecord::Base
 
   has_many :story_questions
   has_many :relatabilities
+  has_many :photos
 
   validates_presence_of :organisation
   validates_presence_of :user
