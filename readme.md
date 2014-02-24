@@ -8,6 +8,8 @@ Created by [Max Shelley](http://twitter.com/maxshelley), [Seyi Ogunyemi](http://
 
 You can see our presentation slides [here](https://docs.google.com/a/measuredbrilliance.com/presentation/d/1BEFt7-PWtVZhtltQSyJBJrYoyg21kycAVJ6ldh-ZmJQ/edit).
 
+You can see the site for this hack day [here](http://rewiredstate.org/hacks/hackforsocialimpact).
+
 Notes:
 Built with Ruby 2.0, Rails 4  
 Hack-day quality code ;)
